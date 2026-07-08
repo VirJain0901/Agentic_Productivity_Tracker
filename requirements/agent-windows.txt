@@ -1,0 +1,17 @@
+# Windows desktop agent dependencies. Install this only on Windows agent hosts.
+aiofiles==24.1.0
+aiohttp==3.12.14
+certifi==2025.8.3
+idle-time==0.1.0
+psutil==7.0.0
+pywin32==311; sys_platform == "win32"
+python-decouple==3.8
+PyMonCtl==0.92
+PyWinBox==0.7
+PyWinCtl==0.4.1
+requests==2.32.4
+retrying==1.4.2
+pyautogui==0.9.54
+pillow==12.2.0
+pyscreeze==0.1.30
+mouseinfo==0.1.3

@@ -1,0 +1,11 @@
+{
+  "tenant_id": "tenant-1",
+  "actor_id": "admin-1",
+  "action": "device.view",
+  "target_type": "device",
+  "target_id": "device-1",
+  "occurred_at": "2026-06-20T10:00:00+00:00",
+  "metadata": {
+    "reason": "support"
+  }
+}

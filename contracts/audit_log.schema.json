@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://observeos.local/contracts/audit_log.schema.json",
+  "title": "Audit Log Entry",
+  "type": "object",
+  "required": [
+    "tenant_id",
+    "actor_id",
+    "action",
+    "target_type",
+    "target_id",
+    "occurred_at"
+  ],
+  "properties": {
+    "tenant_id": { "type": "string", "minLength": 1 },
+    "actor_id": { "type": "string", "minLength": 1 },
+    "action": { "type": "string", "minLength": 1 },
+    "target_type": { "type": "string", "minLength": 1 },
+    "target_id": { "type": "string", "minLength": 1 },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "metadata": { "type": "object" }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>ObserveOS Investor Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body data-theme="light">
+  <div class="app-shell">
+    <aside class="rail" aria-label="Primary">
+      <div class="brand" aria-label="ObserveOS">OS</div>
+      <nav class="rail-nav">
+        <button class="nav-button active" type="button" data-view="overview" aria-label="Overview">⌂</button>
+        <button class="nav-button" type="button" data-view="people" aria-label="People">◎</button>
+        <button class="nav-button" type="button" data-view="detail" aria-label="Detail">□</button>
+        <button class="nav-button" type="button" data-view="policy" aria-label="Policy">◇</button>
+        <button class="nav-button" type="button" data-view="insights" aria-label="Insights">↗</button>
+        <button class="nav-button" type="button" data-view="ops" aria-label="Operations">⚙</button>
+      </nav>
+      <button class="nav-button rail-bottom" type="button" id="theme-toggle" aria-label="Toggle theme">☾</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="title-group">
+          <div class="eyebrow">Investor demo · sample operational state</div>
+          <h1 id="page-title">Command Center</h1>
+          <p id="page-subtitle">Unified supervision for classrooms, teams, labs, and training floors.</p>
+        </div>
+        <div class="toolbar">
+          <div class="segmented" aria-label="Audience mode">
+            <button type="button" class="active" data-mode="education">Education</button>
+            <button type="button" data-mode="workforce">Workforce</button>
+          </div>
+          <button class="button primary" type="button" id="refresh-demo">Refresh</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="view active" id="view-overview" aria-label="Overview">
+          <div class="context-grid" id="context-grid"></div>
+          <div class="overview-layout">
+            <section class="hero-panel">
+              <div>
+                <span class="status-pill blue" id="mode-pill">Education mode</span>
+                <h2 id="hero-title">Live oversight without turning the product into surveillance chaos.</h2>
+                <p id="hero-copy"></p>
+              </div>
+              <div class="hero-proof">
+                <strong id="demo-proof">Live demo mode</strong>
+                <span>Sample state with legal gates, sync health, and audit visibility clearly separated.</span>
+              </div>
+            </section>
+            <div class="metric-grid" id="metric-grid"></div>
+          </div>
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2 id="grid-title">Live Workspace</h2>
+                <span id="grid-subtitle">Screens, status, activity, and review state</span>
+              </div>
+              <button class="button" type="button" data-command="Broadcast">Broadcast</button>
+            </div>
+            <div class="people-grid" id="people-grid"></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-people" aria-label="People">
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2 id="people-title">People Directory</h2>
+                <span>Role, location, device health, and review state</span>
+              </div>
+              <input class="input" id="people-search" placeholder="Search name or ID">
+            </div>
+            <table class="data-table" id="people-table"></table>
+          </section>
+        </section>
+
+        <section class="view" id="view-detail" aria-label="Detail">
+          <div class="detail-layout">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <h2 id="detail-name">Selected person</h2>
+                  <span id="detail-meta">Current device and activity</span>
+                </div>
+                <span class="status-pill" id="detail-status">Online</span>
+              </div>
+              <div class="detail-body">
+                <div class="screen-preview large" id="detail-screen"></div>
+                <div class="fact-grid" id="detail-facts"></div>
+              </div>
+            </section>
+            <aside class="panel">
+              <div class="panel-head">
+                <div>
+                  <h2>Audited Actions</h2>
+                  <span>Simulated acknowledgements</span>
+                </div>
+              </div>
+              <div class="command-grid">
+                <button class="button command" type="button" data-command="Focus message">Message</button>
+                <button class="button command" type="button" data-command="Push URL">Push URL</button>
+                <button class="button command" type="button" data-command="Limit websites">Policy</button>
+                <button class="button command danger" type="button" data-command="Capture snapshot">Snapshot</button>
+              </div>
+              <div class="event-feed" id="detail-feed"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="view-policy" aria-label="Policy">
+          <div class="policy-grid" id="policy-grid"></div>
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>End-to-End Flow</h2>
+                <span>Python modules feed the TypeScript demo through contracts</span>
+              </div>
+            </div>
+            <div class="flow-strip" id="flow-strip"></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-insights" aria-label="Insights">
+          <div class="overview-layout">
+            <section class="hero-panel compact">
+              <div>
+                <span class="status-pill green">Analytics preview</span>
+                <h2>Explainable signals for managers, teachers, and auditors.</h2>
+                <p>Scores are sample-only here. Real ML remains gated behind backend, privacy, and legal review.</p>
+              </div>
+            </section>
+            <div class="metric-grid" id="insight-metrics"></div>
+          </div>
+          <div class="split">
+            <section class="panel">
+              <div class="panel-head"><div><h2>Engagement Trend</h2><span>Demo week</span></div></div>
+              <div class="bar-chart" id="bar-chart"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><h2>Signals</h2><span>Needs action</span></div></div>
+              <table class="data-table" id="signals-table"></table>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="view-ops" aria-label="Operations">
+          <div class="split">
+            <section class="panel">
+              <div class="panel-head"><div><h2>Device Health</h2><span>Last seen, queue, and sync state</span></div></div>
+              <table class="data-table" id="ops-table"></table>
+            </section>
+            <section class="panel">
+              <div class="panel-head">
+                <div><h2>Governance Readiness</h2><span>Legal gates, audit trail, and retention posture</span></div>
+                <button class="button" type="button" id="audit-review">Record Review</button>
+              </div>
+              <div class="ops-card ready">
+                <strong id="governance-state">Demo controls visible</strong>
+                <span id="governance-detail">Sensitive production features remain gated until consent, audit, retention, and legal review are confirmed.</span>
+              </div>
+              <table class="data-table" id="audit-table"></table>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="command-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <div class="panel-head">
+        <div>
+          <h2 id="modal-title">Command</h2>
+          <span id="modal-subtitle">Selected target</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <label class="field">
+          <span>Scope</span>
+          <select class="input" id="command-scope">
+            <option>Selected person</option>
+            <option>Current group</option>
+            <option>Devices needing review</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Payload</span>
+          <input class="input" id="command-payload" value="Please return to the assigned task.">
+        </label>
+        <div class="ops-card warning">
+          <strong>Legal gate enforced</strong>
+          <span>This demo records a simulated command acknowledgement. It does not execute remote commands.</span>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="button" type="button" id="modal-cancel">Cancel</button>
+        <button class="button primary" type="button" id="modal-confirm">Send Demo Command</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+  <script type="module" src="./dist/main.js"></script>
+</body>
+</html>

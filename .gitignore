@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Virtual environment
+venv/
+.venv/
+.env
+tmp/
+
+# Django 
+*.log
+staticfiles/
+media/
+screenshots/
+
+# IDE
+.vscode/
+.idea/
+
+# Frontend dependencies and generated Vite assets
+node_modules/
+investor_demo/dist/assets/
+investor_demo/dist/index.html
+
+# Ignore screenshot image files but keep the folder
+screenshots/*.png
+screenshots/*.jpg
+screenshots/**/*.png
+screenshots/**/*.jpg
+media/screenshots/*.png
+media/screenshots/*.jpg
+
+# Local SQLite queue database
+sync_queue.db
+*.db

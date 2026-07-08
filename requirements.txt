@@ -1,0 +1,5 @@
+# Legacy all-in-one install path kept for compatibility.
+# Prefer installing the scoped files directly for production images.
+-r requirements/backend.txt
+-r requirements/agent-windows.txt
+-r requirements/ml.txt

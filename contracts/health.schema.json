@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://observeos.local/contracts/health.schema.json",
+  "title": "V1 Health Payload",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source",
+    "checked_at",
+    "overall_status",
+    "service_status_counts",
+    "device_status_counts",
+    "down_services",
+    "degraded_services",
+    "unhealthy_device_ids"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "source": { "type": "string", "enum": ["live", "sample"] },
+    "checked_at": { "type": "string", "format": "date-time" },
+    "overall_status": { "type": "string", "enum": ["ok", "degraded", "down"] },
+    "service_status_counts": {
+      "type": "object",
+      "required": ["ok", "degraded", "down"],
+      "properties": {
+        "ok": { "type": "integer" },
+        "degraded": { "type": "integer" },
+        "down": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "device_status_counts": {
+      "type": "object",
+      "required": ["healthy", "stale", "offline"],
+      "properties": {
+        "healthy": { "type": "integer" },
+        "stale": { "type": "integer" },
+        "offline": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "down_services": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "degraded_services": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "unhealthy_device_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

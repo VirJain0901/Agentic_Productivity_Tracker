@@ -1,0 +1,33 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: employee-tracker-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: employee-tracker-postgres
+    profiles:
+      - postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-employee_tracker}
+      POSTGRES_USER: ${POSTGRES_USER:-employee_tracker}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-employee_tracker_dev_password}
+    ports:
+      - "5432:5432"
+    volumes:
+      - employee_tracker_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-employee_tracker} -d ${POSTGRES_DB:-employee_tracker}"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  employee_tracker_postgres_data:

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "source": "live",
+  "checked_at": "2026-06-20T10:00:00+00:00",
+  "overall_status": "degraded",
+  "service_status_counts": {
+    "ok": 1,
+    "degraded": 1,
+    "down": 0
+  },
+  "device_status_counts": {
+    "healthy": 8,
+    "stale": 1,
+    "offline": 0
+  },
+  "down_services": [],
+  "degraded_services": ["redis"],
+  "unhealthy_device_ids": ["device-2"]
+}

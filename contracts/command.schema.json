@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://observeos.local/contracts/command.schema.json",
+  "title": "Gated Command Request",
+  "type": "object",
+  "required": [
+    "tenant_id",
+    "command_id",
+    "target_device_id",
+    "command_type",
+    "requires_legal_review",
+    "requested_by"
+  ],
+  "properties": {
+    "tenant_id": { "type": "string", "minLength": 1 },
+    "command_id": { "type": "string", "format": "uuid" },
+    "target_device_id": { "type": "string", "minLength": 1 },
+    "command_type": {
+      "type": "string",
+      "enum": ["send_message", "lock_screen", "focus_policy", "request_check_in"]
+    },
+    "requires_legal_review": { "const": true },
+    "requested_by": { "type": "string", "minLength": 1 },
+    "payload": { "type": "object" }
+  },
+  "additionalProperties": false
+}
